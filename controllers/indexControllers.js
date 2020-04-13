@@ -3,7 +3,7 @@ exports.indexGet = (req, res) => {
 };
 
 exports.signUpGet = (req, res) => {
-  res.send('NOT IMPLEMENTED: signUpGet');
+  res.render('sign-up');
 };
 
 exports.signUpPost = (req, res) => {
