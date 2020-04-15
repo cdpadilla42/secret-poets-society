@@ -21,4 +21,8 @@ router.get('/upgrade-membership', controllers.upgradeMembershipGET);
 
 router.post('/upgrade-membership', controllers.upgradeMembershipPOST);
 
+router.get('/create-poem', controllers.createPoemGet);
+
+router.post('/create-poem', controllers.createPoemPost);
+
 module.exports = router;

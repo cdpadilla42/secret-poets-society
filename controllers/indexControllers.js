@@ -1,5 +1,6 @@
 const { body, validationResult, sanitizeBody } = require('express-validator');
 const User = require('../models/user');
+const Poem = require('../models/poem');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -102,5 +103,47 @@ exports.upgradeMembershipPOST = [
         res.redirect('/');
       });
     });
+  },
+];
+
+exports.createPoemGet = (req, res) => {
+  res.render('poem-form');
+};
+
+exports.createPoemPost = [
+  // validate
+  body('title', 'Title required. Label untitled if none.').exists(),
+  body('text', 'Poem body required').exists(),
+  body('user', 'User must be logged in').exists(),
+
+  // sanitize
+  sanitizeBody('title').escape(),
+  sanitizeBody('text').escape(),
+  sanitizeBody('user').escape(),
+
+  // process
+  (req, res, next) => {
+    // new poem
+    const poem = new Poem({
+      title: req.body.title,
+      text: req.body.text,
+      user: req.body.user,
+      timeStamp: Date.now(),
+    });
+    // errors
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.render('poem-form', {
+        errors: errors.array(),
+        poem,
+      });
+    } else {
+      // save new poem
+      poem.save((err) => {
+        if (err) return next(err);
+        console.log(poem);
+        res.redirect('/');
+      });
+    }
   },
 ];
