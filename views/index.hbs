@@ -8,7 +8,17 @@
 <h2>Poems</h1>
 {{#if poems}}
   {{#each poems}}
-    {{this}}
+    <div class="card">
+      <div class="card-header"><h6>{{this.title}}</h3></div>
+    <div class="card-body">
+      <p class="card-text">
+      {{this.text}}
+      </p>
+      <p>- {{this.user.name}}</p>
+    </div>
+    <div class="card-footer text-muted">{{this.formattedDate}}</div>
+    </div>
+    <br>
   {{/each}}
 {{/if}}
 

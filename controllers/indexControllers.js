@@ -6,13 +6,15 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 exports.indexGet = (req, res, next) => {
-  Poem.find().exec((err, poems) => {
-    if (err) return next(err);
-    res.render('index', {
-      title: 'The SPS',
-      poems,
+  Poem.find()
+    .populate('user')
+    .exec((err, poems) => {
+      if (err) return next(err);
+      res.render('index', {
+        title: 'The SPS',
+        poems,
+      });
     });
-  });
 };
 
 exports.signUpGet = (req, res) => {
