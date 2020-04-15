@@ -1,3 +1,13 @@
+{{#if errors}}
+{{#each errors}}
+<div class="alert alert-danger" role="alert">
+Error! {{this.msg}}
+</div>
+
+{{/each}}
+
+{{/if}}
+
 <form method="POST">
   <div class="form-group">
     <label for="exampleInputEmail1">First Name</label>
@@ -27,3 +37,4 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+

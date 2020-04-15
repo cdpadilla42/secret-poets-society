@@ -1,4 +1,4 @@
-const { body, validationResults, sanitizeBody } = require('express-validator');
+const { body, validationResult, sanitizeBody } = require('express-validator');
 const User = require('../models/user');
 
 exports.indexGet = (req, res) => {
@@ -11,10 +11,14 @@ exports.signUpGet = (req, res) => {
 
 exports.signUpPost = [
   // validate
+  // TODO: Test password validation
   body('first_name').trim().isLength({ min: 1 }),
   body('last_name').trim().isLength({ min: 1 }),
   body('username').trim().isLength({ min: 1 }),
   body('password').trim().isLength({ min: 1 }),
+  body('password_confirm', 'Passwords must match').custom(
+    (value, { req }) => value === req.body.password
+  ),
 
   // sanitize
   sanitizeBody('first_name').escape(),
@@ -25,7 +29,6 @@ exports.signUpPost = [
 
   // process request
   (req, res, next) => {
-    // TODO: VALIDATE PASSWORD
     // Create new user
     const user = new User({
       first_name: req.body.first_name,
@@ -36,9 +39,10 @@ exports.signUpPost = [
       member_status: req.body.member_status,
     });
     // handle errors
-    const errors = validationResults(req);
+    const errors = validationResult(req);
     if (!errors.isEmpty()) {
       // return to form w/ errors
+
       res.render('sign-up', { errors: errors.array() });
     } else {
       // view success
