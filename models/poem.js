@@ -11,7 +11,7 @@ const PoemSchema = new Schema({
 });
 
 PoemSchema.virtual('formattedDate').get(function () {
-  return moment(this.timeStamp).format('MM - DD - YY');
+  return moment(this.timeStamp).format('ddd MMMM Do, YYYY');
 });
 
 module.exports = mongoose.model('Poem', PoemSchema);
