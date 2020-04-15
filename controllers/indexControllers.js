@@ -72,3 +72,35 @@ exports.logOut = (req, res) => {
   req.logout();
   res.redirect('/login');
 };
+
+exports.upgradeMembershipGET = (req, res) => {
+  res.render('upgrade-membership');
+};
+
+exports.upgradeMembershipPOST = [
+  // validate
+  body('key', 'incorrect key').custom((value, { req }) => value === 'cats'),
+  // sanitize
+  sanitizeBody('key').escape(),
+  // proccess
+  (req, res, next) => {
+    // handle errors
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.log(errors.array());
+      res.render('upgrade-membership', { errors: errors.array() });
+      return;
+    }
+    // new user
+    User.findById(req.user._id).exec((err, currentUser) => {
+      if (err) return next(err);
+      let updatedUser = currentUser;
+      updatedUser.member_status = 'member';
+      User.findByIdAndUpdate(req.user._id, currentUser, {}, (err, theUser) => {
+        if (err) return next(err);
+        console.log(theUser);
+        res.redirect('/');
+      });
+    });
+  },
+];

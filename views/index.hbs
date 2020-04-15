@@ -1,11 +1,11 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}
-  {{#if user}}
-  , {{user.first_name}}
+  {{#if currentUser}}
+  , {{currentUser.first_name}}
   {{/if}}
 </p>
 
-{{#if user}}
+{{#if currentUser}}
 <a href="/logout">
 Logout
 </a>

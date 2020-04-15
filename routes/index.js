@@ -17,9 +17,8 @@ router.post('/login', controllers.loginPost);
 
 router.get('/logout', controllers.logOut);
 
-router.use(function (req, res, next) {
-  res.locals.currentUser = req.user;
-  next;
-});
+router.get('/upgrade-membership', controllers.upgradeMembershipGET);
+
+router.post('/upgrade-membership', controllers.upgradeMembershipPOST);
 
 module.exports = router;
