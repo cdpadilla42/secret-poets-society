@@ -1,5 +1,6 @@
 const { body, validationResult, sanitizeBody } = require('express-validator');
 const User = require('../models/user');
+const bcrypt = require('bcryptjs');
 
 exports.indexGet = (req, res) => {
   res.send('NOT IMPLEMENTED: indexGet');
@@ -29,28 +30,30 @@ exports.signUpPost = [
 
   // process request
   (req, res, next) => {
-    // Create new user
-    const user = new User({
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      username: req.body.username,
-      // TODO: ENCRYPT PASSWORD
-      password: req.body.password,
-      member_status: req.body.member_status,
-    });
-    // handle errors
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      // return to form w/ errors
-
-      res.render('sign-up', { errors: errors.array() });
-    } else {
-      // view success
-      user.save((err, newUser) => {
-        if (err) return next(err);
-        res.redirect('/');
+    bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
+      if (err) return next(err);
+      // Create new user
+      const user = new User({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        username: req.body.username,
+        password: hashedPassword,
+        member_status: req.body.member_status,
       });
-    }
+      // handle errors
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        // return to form w/ errors
+
+        res.render('sign-up', { errors: errors.array() });
+      } else {
+        // view success
+        user.save((err, newUser) => {
+          if (err) return next(err);
+          res.redirect('/');
+        });
+      }
+    });
   },
 ];
 
