@@ -6,7 +6,8 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const session = require('express-sessions');
+const session = require('express-session');
+const User = require('./models/user');
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
@@ -56,7 +57,7 @@ passport.deserializeUser(function (id, done) {
 app.use(session({ secret: 'mjscdp', resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(expres.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -14,7 +14,6 @@ exports.signUpGet = (req, res) => {
 
 exports.signUpPost = [
   // validate
-  // TODO: Test password validation
   body('first_name').trim().isLength({ min: 1 }),
   body('last_name').trim().isLength({ min: 1 }),
   body('username').trim().isLength({ min: 1 }),
@@ -63,6 +62,8 @@ exports.loginGet = (req, res) => {
   res.render('login');
 };
 
-exports.loginPost = (req, res) => {
-  //
-};
+exports.loginPost = passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true,
+});
