@@ -1,6 +1,8 @@
 const { body, validationResult, sanitizeBody } = require('express-validator');
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
 exports.indexGet = (req, res) => {
   res.send('NOT IMPLEMENTED: indexGet');
@@ -58,9 +60,9 @@ exports.signUpPost = [
 ];
 
 exports.loginGet = (req, res) => {
-  res.send('NOT IMPLEMENTED: loginGet');
+  res.render('login');
 };
 
 exports.loginPost = (req, res) => {
-  res.send('NOT IMPLEMENTED: loginPost');
+  //
 };
