@@ -5,6 +5,13 @@
   {{/if}}
 </p>
 
+<h2>Poems</h1>
+{{#if poems}}
+  {{#each poems}}
+    {{this}}
+  {{/each}}
+{{/if}}
+
 {{#if currentUser}}
 <a href="/logout">
 Logout
