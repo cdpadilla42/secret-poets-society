@@ -79,7 +79,7 @@ exports.upgradeMembershipGET = (req, res) => {
 
 exports.upgradeMembershipPOST = [
   // validate
-  body('key', 'incorrect key').custom((value, { req }) => value === 'cats'),
+  body('key', 'Incorrect key.').custom((value, { req }) => value === 'cats'),
   // sanitize
   sanitizeBody('key').escape(),
   // proccess
@@ -87,7 +87,7 @@ exports.upgradeMembershipPOST = [
     // handle errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      console.log(errors.array());
+      console.log(errors);
       res.render('upgrade-membership', { errors: errors.array() });
       return;
     }
