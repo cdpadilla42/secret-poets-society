@@ -9,6 +9,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const User = require('./models/user');
 require('dotenv').config();
+const bcrypt = require('bcryptjs');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -36,10 +37,16 @@ passport.use(
       if (!user) {
         return done(null, false, { msg: 'Incorrect username' });
       }
-      if (user.password !== password) {
-        return done(null, false, { msg: 'Incorrect password' });
-      }
-      return done(null, user);
+      bcrypt.compare(password, user.password, (err, res) => {
+        if (err) return next(err);
+        if (res) {
+          // passwords match! log user in
+          return done(null, user);
+        } else {
+          // passwords do not match!
+          return done(null, false, { msg: 'Incorrect password' });
+        }
+      });
     });
   })
 );
