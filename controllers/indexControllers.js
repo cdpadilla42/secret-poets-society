@@ -133,6 +133,8 @@ exports.upgradeMembershipPOST = [
 ];
 
 exports.createPoemGet = (req, res, next) => {
+  // TODO Make it so only users can post poems
+  // TODO Also make it so only members can see who posted what
   res.render('poem-form');
 };
 
