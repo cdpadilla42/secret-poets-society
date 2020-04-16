@@ -164,23 +164,35 @@ exports.createPoemPost = [
 ];
 
 exports.deletePoemsList = (req, res) => {
-  Poem.find()
-    .populate('user')
-    .exec((err, poems) => {
-      if (err) return next(err);
-      res.render('delete', {
-        poems,
+  if (req.user && req.user.member_status === 'admin') {
+    Poem.find()
+      .populate('user')
+      .exec((err, poems) => {
+        if (err) return next(err);
+        res.render('delete', {
+          poems,
+        });
       });
+  } else {
+    res.render('access-error', {
+      error: 'Must be an admin to delete poems',
     });
+  }
 };
 
 exports.deletePoemGet = (req, res, err) => {
-  Poem.findById(req.params.id).exec((err, poem) => {
-    if (err) return next(err);
-    res.render('delete-poem', {
-      poem,
+  if (req.user.member_status === 'admin') {
+    Poem.findById(req.params.id).exec((err, poem) => {
+      if (err) return next(err);
+      res.render('delete-poem', {
+        poem,
+      });
     });
-  });
+  } else {
+    res.render('access-error', {
+      error: 'Must be an admin to delete poems',
+    });
+  }
 };
 
 exports.deletePoemPost = (req, res, err) => {
