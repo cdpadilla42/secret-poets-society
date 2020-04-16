@@ -174,6 +174,18 @@ exports.deletePoemsList = (req, res) => {
     });
 };
 
-exports.deletePoemGet = (req, res) => {
-  res.send('delete ' + req.params.id);
+exports.deletePoemGet = (req, res, err) => {
+  Poem.findById(req.params.id).exec((err, poem) => {
+    if (err) return next(err);
+    res.render('delete-poem', {
+      poem,
+    });
+  });
+};
+
+exports.deletePoemPost = (req, res, err) => {
+  Poem.findByIdAndRemove(req.body.id, function deletePoem(err) {
+    if (err) return next(err);
+    res.redirect('/delete');
+  });
 };

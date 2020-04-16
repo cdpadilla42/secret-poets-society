@@ -27,4 +27,6 @@ router.get('/delete', controllers.deletePoemsList);
 
 router.get('/delete/:id', controllers.deletePoemGet);
 
+router.post('/delete/:id', controllers.deletePoemPost);
+
 module.exports = router;
