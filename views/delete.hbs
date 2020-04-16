@@ -1,13 +1,5 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}
-  {{#if currentUser}}
-  , {{currentUser.first_name}}
-  {{/if}}
-</p>
 
-
-
-<h2>Poems</h1>
+<h2>Delete Poems</h1>
 {{#if currentUser}}
   {{#each poems}}
     <div class="card">
@@ -17,24 +9,17 @@
       {{this.text}}
       </p>
       <p>- {{this.user.name}}</p>
+      <p>
+        <a href="/delete/{{this._id}}" class="btn btn-danger">Delete</a>
+      </p>
     </div>
     <div class="card-footer text-muted">{{this.formattedDate}}</div>
     </div>
     <br>
   {{/each}}
   {{else}}
-  {{#each poems}}
-    <div class="card">
-      <div class="card-header"><h6>{{this.title}}</h3></div>
-      <div class="card-body">
-        <p class="card-text">
-          {{this.text}}
-        </p>
-      </div>
-    </div>
-    <br>
-  {{/each}}
-{{/if}}
+    <p>Must be logged in as admin to delete</p>
+  {{/if}}
 
 {{#if currentUser}}
 <a href="/logout">

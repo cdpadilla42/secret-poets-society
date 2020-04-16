@@ -10,6 +10,9 @@ const session = require('express-session');
 const User = require('./models/user');
 require('dotenv').config();
 const bcrypt = require('bcryptjs');
+const hbs = require('express-handlebars');
+const hbshelpers = require('handlebars-helpers');
+const multihelpers = hbshelpers();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -25,6 +28,16 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+// app.engine(
+//   'hbs',
+//   hbs({
+//     helpers: multihelpers,
+//     partialsDir: ['views/partials'],
+//     extname: '.hbs',
+//     layoutsDir: 'views',
+//     defaultLayout: 'layout',
+//   })
+// );
 app.set('view engine', 'hbs');
 
 // Authentication

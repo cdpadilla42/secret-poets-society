@@ -88,7 +88,9 @@ exports.upgradeMembershipGET = (req, res) => {
 
 exports.upgradeMembershipPOST = [
   // validate
-  body('key', 'Incorrect key.').custom((value, { req }) => value === 'cats'),
+  body('key', 'Incorrect key.').custom(
+    (value, { req }) => value === 'cats' || value === 'dogs'
+  ),
   // sanitize
   sanitizeBody('key').escape(),
   // proccess
@@ -104,7 +106,12 @@ exports.upgradeMembershipPOST = [
     User.findById(req.user._id).exec((err, currentUser) => {
       if (err) return next(err);
       let updatedUser = currentUser;
-      updatedUser.member_status = 'member';
+      if (req.body.key === 'cats') {
+        updatedUser.member_status = 'member';
+      }
+      if (req.body.key === 'dogs') {
+        updatedUser.member_status = 'admin';
+      }
       User.findByIdAndUpdate(req.user._id, currentUser, {}, (err, theUser) => {
         if (err) return next(err);
         console.log(theUser);
@@ -155,3 +162,18 @@ exports.createPoemPost = [
     }
   },
 ];
+
+exports.deletePoemsList = (req, res) => {
+  Poem.find()
+    .populate('user')
+    .exec((err, poems) => {
+      if (err) return next(err);
+      res.render('delete', {
+        poems,
+      });
+    });
+};
+
+exports.deletePoemGet = (req, res) => {
+  res.send('delete ' + req.params.id);
+};

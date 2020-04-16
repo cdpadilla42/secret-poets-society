@@ -23,4 +23,8 @@ router.get('/create-poem', controllers.createPoemGet);
 
 router.post('/create-poem', controllers.createPoemPost);
 
+router.get('/delete', controllers.deletePoemsList);
+
+router.get('/delete/:id', controllers.deletePoemGet);
+
 module.exports = router;
