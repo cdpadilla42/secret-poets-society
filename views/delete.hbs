@@ -1,5 +1,14 @@
 
-<h2>Delete Poems</h1>
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}
+  {{#if currentUser}}
+  , {{currentUser.first_name}}
+  {{/if}}
+</p>
+
+
+
+<h2>Poems</h2>
 {{#if currentUser}}
   {{#each poems}}
     <div class="card">

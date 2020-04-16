@@ -6,6 +6,17 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 exports.indexGet = (req, res, next) => {
+  if (req.user && req.user.member_status === 'admin') {
+    Poem.find()
+      .populate('user')
+      .exec((err, poems) => {
+        if (err) return next(err);
+        res.render('delete', {
+          title: 'The SPS',
+          poems,
+        });
+      });
+  }
   Poem.find()
     .populate('user')
     .exec((err, poems) => {
@@ -67,7 +78,7 @@ exports.signUpPost = [
   },
 ];
 
-exports.loginGet = (req, res) => {
+exports.loginGet = (req, res, next) => {
   res.render('login');
 };
 
@@ -82,7 +93,7 @@ exports.logOut = (req, res) => {
   res.redirect('/login');
 };
 
-exports.upgradeMembershipGET = (req, res) => {
+exports.upgradeMembershipGET = (req, res, next) => {
   res.render('upgrade-membership');
 };
 
@@ -121,7 +132,7 @@ exports.upgradeMembershipPOST = [
   },
 ];
 
-exports.createPoemGet = (req, res) => {
+exports.createPoemGet = (req, res, next) => {
   res.render('poem-form');
 };
 
@@ -163,7 +174,7 @@ exports.createPoemPost = [
   },
 ];
 
-exports.deletePoemsList = (req, res) => {
+exports.deletePoemsList = (req, res, next) => {
   if (req.user && req.user.member_status === 'admin') {
     Poem.find()
       .populate('user')
@@ -180,8 +191,8 @@ exports.deletePoemsList = (req, res) => {
   }
 };
 
-exports.deletePoemGet = (req, res, err) => {
-  if (req.user.member_status === 'admin') {
+exports.deletePoemGet = (req, res, next) => {
+  if (req.user && req.user.member_status === 'admin') {
     Poem.findById(req.params.id).exec((err, poem) => {
       if (err) return next(err);
       res.render('delete-poem', {
@@ -195,9 +206,15 @@ exports.deletePoemGet = (req, res, err) => {
   }
 };
 
-exports.deletePoemPost = (req, res, err) => {
-  Poem.findByIdAndRemove(req.body.id, function deletePoem(err) {
-    if (err) return next(err);
-    res.redirect('/delete');
-  });
+exports.deletePoemPost = (req, res, next) => {
+  if (req.user && req.user.member_status !== 'admin') {
+    res.render('access-error', {
+      error: 'Must be an admin to delete poems',
+    });
+  } else {
+    Poem.findByIdAndRemove(req.body.id, function deletePoem(err) {
+      if (err) return next(err);
+      res.redirect('/delete');
+    });
+  }
 };
