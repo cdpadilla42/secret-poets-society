@@ -15,6 +15,19 @@ exports.indexGet = (req, res, next) => {
           title: 'The SPS',
           poems,
         });
+        return;
+      });
+  }
+  if (req.user && req.user.member_status === 'member') {
+    Poem.find()
+      .populate('user')
+      .exec((err, poems) => {
+        if (err) return next(err);
+        res.render('poems-members', {
+          title: 'The SPS',
+          poems,
+        });
+        return;
       });
   }
   Poem.find()
@@ -29,10 +42,22 @@ exports.indexGet = (req, res, next) => {
 };
 
 exports.signUpGet = (req, res) => {
+  if (req.user) {
+    res.redirect('/');
+    return;
+  }
+
   res.render('sign-up');
 };
 
 exports.signUpPost = [
+  (req, res, next) => {
+    if (req.user) {
+      res.redirect('/');
+      return;
+    }
+    next();
+  },
   // validate
   body('first_name').trim().isLength({ min: 1 }),
   body('last_name').trim().isLength({ min: 1 }),
@@ -71,7 +96,7 @@ exports.signUpPost = [
         // view success
         user.save((err, newUser) => {
           if (err) return next(err);
-          res.redirect('/');
+          res.redirect('/login');
         });
       }
     });
@@ -90,7 +115,7 @@ exports.loginPost = passport.authenticate('local', {
 
 exports.logOut = (req, res) => {
   req.logout();
-  res.redirect('/login');
+  res.redirect('/');
 };
 
 exports.upgradeMembershipGET = (req, res, next) => {
