@@ -17,8 +17,7 @@ exports.indexGet = (req, res, next) => {
         });
         return;
       });
-  }
-  if (req.user && req.user.member_status === 'member') {
+  } else if (req.user && req.user.member_status === 'member') {
     Poem.find()
       .populate('user')
       .exec((err, poems) => {
@@ -29,16 +28,17 @@ exports.indexGet = (req, res, next) => {
         });
         return;
       });
-  }
-  Poem.find()
-    .populate('user')
-    .exec((err, poems) => {
-      if (err) return next(err);
-      res.render('index', {
-        title: 'The SPS',
-        poems,
+  } else {
+    Poem.find()
+      .populate('user')
+      .exec((err, poems) => {
+        if (err) return next(err);
+        res.render('index', {
+          title: 'The SPS',
+          poems,
+        });
       });
-    });
+  }
 };
 
 exports.signUpGet = (req, res) => {
@@ -158,9 +158,12 @@ exports.upgradeMembershipPOST = [
 ];
 
 exports.createPoemGet = (req, res, next) => {
-  // TODO Make it so only users can post poems
-  // TODO Also make it so only members can see who posted what
-  res.render('poem-form');
+  if (req.user) {
+    res.render('poem-form');
+    return;
+  } else {
+    res.redirect('/login');
+  }
 };
 
 exports.createPoemPost = [
