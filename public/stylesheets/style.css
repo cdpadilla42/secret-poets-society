@@ -7,3 +7,9 @@ body {
 a {
   color: #00b7ff;
 }
+
+h1 {
+  font-style: italic;
+  text-shadow: 2px 2px 0 red;
+  font-weight: 700;
+}
