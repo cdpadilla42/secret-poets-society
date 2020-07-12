@@ -8,7 +8,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "server": "DEBUG=secret-poet-society:* npm run dev"
+    "server": "DEBUG=secret-poet-society:* npm run dev",
+    "watch": "sass --watch ./public/stylesheets/style.scss ./public/stylesheets/style.css"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

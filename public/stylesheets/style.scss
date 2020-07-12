@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-style: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-style: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 ul {
@@ -30,9 +30,10 @@ nav {
   color: white;
   align-items: center;
   padding: 0.5rem 1rem;
-}
-nav .hamburger {
-  display: none;
+
+  .hamburger {
+    display: none;
+  }
 }
 
 h4 {
@@ -44,10 +45,9 @@ h4 {
   align-items: center;
   justify-content: flex-end;
   flex: 1;
-}
-.menu li {
-  display: inline-block;
-  padding: 0 0.5rem;
-}
 
-/*# sourceMappingURL=style.css.map */
+  li {
+    display: inline-block;
+    padding: 0 0.5rem;
+  }
+}
