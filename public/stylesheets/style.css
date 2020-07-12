@@ -16,7 +16,7 @@ a {
 
 h1 {
   font-style: italic;
-  text-shadow: 2px 2px 0 red;
+  text-shadow: 2px 2px 0 #fe5a50;
   font-weight: 700;
 }
 
@@ -26,8 +26,8 @@ h1 {
 
 nav {
   display: flex;
-  background-color: #00c6c6;
-  color: white;
+  background-color: #1a222e;
+  color: #e9eaeb;
   align-items: center;
   padding: 0.5rem 1rem;
 }
@@ -48,6 +48,25 @@ h4 {
 .menu li {
   display: inline-block;
   padding: 0 0.5rem;
+}
+.menu .login {
+  display: inline-block;
+  background-color: #fe5a50;
+  color: #e9eaeb;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+.hero {
+  background-color: #1a222e;
+  color: #e9eaeb;
+  padding: 4rem;
+}
+.hero img {
+  width: 50%;
+  border-radius: 10%;
+  float: right;
 }
 
 /*# sourceMappingURL=style.css.map */

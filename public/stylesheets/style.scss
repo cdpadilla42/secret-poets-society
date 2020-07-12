@@ -1,3 +1,7 @@
+$navy: #1a222e;
+$cream: #e9eaeb;
+$red: #fe5a50;
+
 body {
   margin: 0;
   padding: 0;
@@ -16,7 +20,7 @@ a {
 
 h1 {
   font-style: italic;
-  text-shadow: 2px 2px 0 red;
+  text-shadow: 2px 2px 0 $red;
   font-weight: 700;
 }
 
@@ -26,8 +30,8 @@ h1 {
 
 nav {
   display: flex;
-  background-color: #00c6c6;
-  color: white;
+  background-color: $navy;
+  color: $cream;
   align-items: center;
   padding: 0.5rem 1rem;
 
@@ -49,5 +53,26 @@ h4 {
   li {
     display: inline-block;
     padding: 0 0.5rem;
+  }
+
+  .login {
+    display: inline-block;
+    background-color: $red;
+    color: #e9eaeb;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+  }
+}
+
+.hero {
+  background-color: $navy;
+  color: $cream;
+  padding: 4rem;
+
+  img {
+    width: 50%;
+    border-radius: 10%;
+    float: right;
   }
 }
