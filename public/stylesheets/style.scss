@@ -66,6 +66,18 @@ h4 {
   }
 }
 
+@keyframes float {
+  0% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0);
+  }
+}
+
 .hero {
   background-color: $navy;
   color: $cream;
@@ -86,6 +98,7 @@ h4 {
       img {
         width: 280px;
         border-radius: 10%;
+        animation: float 6s ease infinite;
       }
     }
   }

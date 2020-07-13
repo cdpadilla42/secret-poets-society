@@ -59,6 +59,17 @@ h4 {
   border-radius: 10px;
 }
 
+@keyframes float {
+  0% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0);
+  }
+}
 .hero {
   background-color: #1a222e;
   color: #e9eaeb;
@@ -77,6 +88,7 @@ h4 {
 .hero .flex-wrap .skull img {
   width: 280px;
   border-radius: 10%;
+  animation: float 6s ease infinite;
 }
 
 .poems {
