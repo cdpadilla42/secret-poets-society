@@ -70,19 +70,33 @@ h4 {
   background-color: $navy;
   color: $cream;
   padding: 4rem;
+  padding-bottom: 8rem;
 
-  img {
-    width: 280px;
-    border-radius: 10%;
-    float: right;
+  .flex-wrap {
+    max-width: 90%;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+
+    .text {
+      flex: 1;
+    }
+
+    .skull {
+      img {
+        width: 280px;
+        border-radius: 10%;
+      }
+    }
   }
 }
 .poems {
   position: relative;
   top: -100px;
 }
-.card {
+.poem_card {
   padding: 2rem;
   border-radius: 2rem;
   margin: 2rem;
+  background-color: #fff;
 }

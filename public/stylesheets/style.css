@@ -63,11 +63,20 @@ h4 {
   background-color: #1a222e;
   color: #e9eaeb;
   padding: 4rem;
+  padding-bottom: 8rem;
 }
-.hero img {
+.hero .flex-wrap {
+  max-width: 90%;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+}
+.hero .flex-wrap .text {
+  flex: 1;
+}
+.hero .flex-wrap .skull img {
   width: 280px;
   border-radius: 10%;
-  float: right;
 }
 
 .poems {
@@ -75,10 +84,11 @@ h4 {
   top: -100px;
 }
 
-.card {
+.poem_card {
   padding: 2rem;
   border-radius: 2rem;
   margin: 2rem;
+  background-color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
