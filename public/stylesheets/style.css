@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-style: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Raleway", sans-serif;
   background-color: #e9eaeb;
 }
 
@@ -17,7 +17,7 @@ a {
 
 h1 {
   font-style: italic;
-  text-shadow: 2px 2px 0 #fe5a50;
+  text-shadow: 1px 2px 0 #fe5a50;
   font-weight: 700;
 }
 
@@ -26,13 +26,17 @@ h1 {
 }
 
 nav {
-  display: flex;
   background-color: #1a222e;
+}
+nav .container {
+  display: flex;
   color: #e9eaeb;
   align-items: center;
   padding: 0.5rem 1rem;
+  width: 90%;
+  margin: 0 auto;
 }
-nav .hamburger {
+nav .container .hamburger {
   display: none;
 }
 
@@ -93,14 +97,27 @@ h4 {
 @media all and (max-width: 960px) {
   .hero .flex-wrap .skull img {
     width: 180px;
-    animation: none;
     margin: 0 auto;
+  }
+}
+@media all and (max-width: 740px) {
+  .hero .flex-wrap .skull img {
+    animation: none;
+  }
+}
+@media all and (max-width: 760px) {
+  .hero .flex-wrap {
+    flex-direction: column;
+  }
+  .hero .skull {
+    padding-top: 3rem;
+    text-align: right;
   }
 }
 
 .poems {
   position: relative;
-  top: -100px;
+  top: -80px;
 }
 
 .poem_card {
