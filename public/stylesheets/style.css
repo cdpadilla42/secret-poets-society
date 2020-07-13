@@ -90,6 +90,13 @@ h4 {
   border-radius: 10%;
   animation: float 6s ease infinite;
 }
+@media all and (max-width: 960px) {
+  .hero .flex-wrap .skull img {
+    width: 180px;
+    animation: none;
+    margin: 0 auto;
+  }
+}
 
 .poems {
   position: relative;
