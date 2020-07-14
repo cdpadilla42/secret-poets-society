@@ -40,6 +40,11 @@ nav .container .hamburger {
   display: none;
 }
 
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
 h4 {
   margin: 0;
 }
