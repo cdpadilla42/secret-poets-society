@@ -1,22 +1,8 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}
-  {{#if currentUser}}
-  , {{currentUser.first_name}}
-  {{/if}}
-</p>
-
-
-
-<h2>Poems</h1>
-
+<div class="poems">
   {{#each poems}}
-    <div class="card">
-      <div class="card-header"><h6>{{this.title}}</h3></div>
-      <div class="card-body">
-        <p class="card-text">
-          {{this.text}}
-        </p>
-      </div>
+    <div class="poem_card">
+      <h2>{{this.title}}</h2>
+      <p>{{this.text}}</p>
     </div>
-    <br>
   {{/each}}
+</div>
