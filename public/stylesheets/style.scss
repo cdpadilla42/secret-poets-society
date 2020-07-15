@@ -141,10 +141,22 @@ h4 {
   position: relative;
   top: -80px;
 }
-.poem_card {
+.poem_card,
+.form {
   padding: 2rem;
   border-radius: 2rem;
   margin: 2rem auto;
   background-color: #fff;
   width: 70vw;
+}
+
+// Forms
+
+.form_backdrop {
+  background-color: salmon;
+  height: 100vh;
+}
+
+.form {
+  margin: 0 auto;
 }
