@@ -15,6 +15,7 @@ const hbshelpers = require('handlebars-helpers');
 const multihelpers = hbshelpers();
 const compression = require('compression');
 const helmet = require('helmet');
+const flash = require('connect-flash');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -43,6 +44,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // Authentication
+app.use(flash());
 passport.use(
   new LocalStrategy((username, password, done) => {
     User.findOne({ username: username }, (err, user) => {

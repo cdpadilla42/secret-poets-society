@@ -90,7 +90,6 @@ exports.signUpPost = [
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         // return to form w/ errors
-
         res.render('sign-up', { errors: errors.array() });
       } else {
         // view success
@@ -168,13 +167,13 @@ exports.createPoemGet = (req, res, next) => {
 
 exports.createPoemPost = [
   // validate
-  body('title', 'Title required. Label untitled if none.').exists(),
-  body('text', 'Poem body required').exists(),
-  body('user', 'User must be logged in').exists(),
+  body('title', 'Title required. Label untitled if none.').isLength({ min: 1 }),
+  body('text', 'Poem body required').isLength({ min: 1 }),
+  body('user', 'User must be logged in').isLength({ min: 1 }),
 
   // sanitize
   sanitizeBody('title').escape(),
-  sanitizeBody('text').escape(),
+  // sanitizeBody('text').escape(),
   sanitizeBody('user').escape(),
 
   // process

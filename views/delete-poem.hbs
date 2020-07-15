@@ -1,6 +1,7 @@
-<h4>Are you sure you want to delete {{poem.title}}?</h1>
-
-<form action="" method="post">
+<div class="form_backdrop">
+<form class="form" action="" method="post">
+  <h2>Are you sure you want to delete {{poem.title}}?</h1>
   <input type="hidden" name="id" value="{{poem._id}}">
   <button type="submit" class="btn btn-danger">Yes, permanently delete</button>
 </form>
+</div>

@@ -147,6 +147,7 @@ h4 {
 }
 .form h2 {
   color: #e9eaeb;
+  text-align: center;
 }
 .form label {
   text-align: left;
@@ -164,6 +165,7 @@ h4 {
 }
 .form textarea {
   resize: none;
+  margin-bottom: 2rem;
 }
 .form input::placeholder {
   font-family: "Raleway", sans-serif;
@@ -191,8 +193,7 @@ h4 {
   border-radius: 5px;
   background-color: #fe5a50;
   color: #e9eaeb;
-  margin: 0 auto;
-  margin-bottom: 1rem;
+  margin: 1rem auto;
 }
 
 /*# sourceMappingURL=style.css.map */

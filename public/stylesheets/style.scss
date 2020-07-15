@@ -171,6 +171,7 @@ h4 {
 
   h2 {
     color: $cream;
+    text-align: center;
   }
 
   label {
@@ -196,6 +197,7 @@ h4 {
   textarea {
     @extend %input;
     resize: none;
+    margin-bottom: 2rem;
   }
 
   input::placeholder {
@@ -227,6 +229,5 @@ h4 {
   border-radius: 5px;
   background-color: $red;
   color: $cream;
-  margin: 0 auto;
-  margin-bottom: 1rem;
+  margin: 1rem auto;
 }
