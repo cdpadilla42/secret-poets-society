@@ -155,7 +155,7 @@ h4 {
 
 .form_backdrop {
   padding: 2rem 0;
-  background-color: salmon;
+  background-color: $cream;
   height: 100%;
 }
 
@@ -163,6 +163,11 @@ h4 {
   margin: 0rem auto;
   text-align: center;
   background-color: $navy;
+  max-width: 600px;
+
+  h2 {
+    color: $cream;
+  }
 
   input {
     margin: 1rem;
@@ -191,6 +196,16 @@ h4 {
     color: $cream;
     border: none;
     border-radius: 5px;
-    margin-top: 1rem;
+    margin: 1rem 0;
   }
+}
+
+.alert {
+  width: 80%;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: $red;
+  color: $cream;
+  margin: 0 auto;
+  margin-bottom: 1rem;
 }

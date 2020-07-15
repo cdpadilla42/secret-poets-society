@@ -137,7 +137,7 @@ h4 {
 
 .form_backdrop {
   padding: 2rem 0;
-  background-color: salmon;
+  background-color: #e9eaeb;
   height: 100%;
 }
 
@@ -145,6 +145,10 @@ h4 {
   margin: 0rem auto;
   text-align: center;
   background-color: #1a222e;
+  max-width: 600px;
+}
+.form h2 {
+  color: #e9eaeb;
 }
 .form input {
   margin: 1rem;
@@ -170,7 +174,17 @@ h4 {
   color: #e9eaeb;
   border: none;
   border-radius: 5px;
-  margin-top: 1rem;
+  margin: 1rem 0;
+}
+
+.alert {
+  width: 80%;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #fe5a50;
+  color: #e9eaeb;
+  margin: 0 auto;
+  margin-bottom: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */
