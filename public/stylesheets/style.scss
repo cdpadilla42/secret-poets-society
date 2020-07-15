@@ -1,11 +1,12 @@
 $navy: #1a222e;
 $cream: #e9eaeb;
 $red: #fe5a50;
+$font-stack: 'Raleway', sans-serif;
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: $font-stack;
   background-color: $cream;
 }
 
@@ -153,10 +154,43 @@ h4 {
 // Forms
 
 .form_backdrop {
+  padding: 2rem 0;
   background-color: salmon;
-  height: 100vh;
+  height: 100%;
 }
 
 .form {
-  margin: 0 auto;
+  margin: 0rem auto;
+  text-align: center;
+  background-color: $navy;
+
+  input {
+    margin: 1rem;
+    padding: 0.5rem;
+    width: calc(100% - 4rem);
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid $navy;
+    font-family: $font-stack;
+  }
+
+  input::placeholder {
+    font-family: $font-stack;
+  }
+
+  input:focus {
+    box-shadow: 0px 0px 5px $cream;
+    outline: none;
+  }
+
+  button {
+    font-family: $font-stack;
+    font-size: 1.3rem;
+    padding: 0.5rem 2rem;
+    background-color: $red;
+    color: $cream;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+  }
 }
