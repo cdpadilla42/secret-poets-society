@@ -1,3 +1,15 @@
+<div class="poems">
+  {{#each poems}}
+    <div class="poem_card">
+      <h2>{{this.title}}</h2>
+      <p>{{this.text}}</p>
+      <p>- {{this.user.name}}</p>
+    </div>
+  {{/each}}
+</div>
+
+
+
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}
   {{#if currentUser}}

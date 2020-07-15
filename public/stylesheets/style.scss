@@ -3,6 +3,13 @@ $cream: #e9eaeb;
 $red: #fe5a50;
 $font-stack: 'Raleway', sans-serif;
 
+%card {
+  padding: 2rem;
+  border-radius: 2rem;
+  margin: 2rem auto;
+  background-color: #fff;
+  width: 70vw;
+}
 body {
   margin: 0;
   padding: 0;
@@ -138,17 +145,13 @@ h4 {
     }
   }
 }
-.poems {
+.index_poems {
   position: relative;
   top: -80px;
 }
-.poem_card,
-.form {
-  padding: 2rem;
-  border-radius: 2rem;
-  margin: 2rem auto;
-  background-color: #fff;
-  width: 70vw;
+
+.poem_card {
+  @extend %card;
 }
 
 // Forms
@@ -160,6 +163,7 @@ h4 {
 }
 
 .form {
+  @extend %card;
   margin: 0rem auto;
   text-align: center;
   background-color: $navy;

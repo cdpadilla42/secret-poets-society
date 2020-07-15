@@ -1,12 +1,15 @@
-
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}
-  {{#if currentUser}}
-  , {{currentUser.first_name}}
-  {{/if}}
-</p>
-
-
+<div class="poems">
+  {{#each poems}}
+    <div class="poem_card">
+      <h2>{{this.title}}</h2>
+      <p>{{this.text}}</p>
+      <p>- {{this.user.name}}</p>
+       <p>
+        <a href="/delete/{{this._id}}" class="btn btn-danger">Delete</a>
+      </p>
+    </div>
+  {{/each}}
+</div>
 
 <h2>Poems</h2>
 {{#if currentUser}}
