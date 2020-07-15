@@ -165,7 +165,7 @@ h4 {
 .form {
   @extend %card;
   margin: 0rem auto;
-  text-align: center;
+  // text-align: center;
   background-color: $navy;
   max-width: 600px;
 
@@ -173,8 +173,14 @@ h4 {
     color: $cream;
   }
 
-  input {
-    margin: 1rem;
+  label {
+    text-align: left;
+    color: $cream;
+  }
+
+  %input {
+    display: block;
+    margin: 1rem auto;
     padding: 0.5rem;
     width: calc(100% - 4rem);
     font-size: 1.2rem;
@@ -183,16 +189,27 @@ h4 {
     font-family: $font-stack;
   }
 
+  input {
+    @extend %input;
+  }
+
+  textarea {
+    @extend %input;
+    resize: none;
+  }
+
   input::placeholder {
     font-family: $font-stack;
   }
 
-  input:focus {
+  input:focus,
+  textarea:focus {
     box-shadow: 0px 0px 5px $cream;
     outline: none;
   }
 
   button {
+    display: block;
     font-family: $font-stack;
     font-size: 1.3rem;
     padding: 0.5rem 2rem;
@@ -200,7 +217,7 @@ h4 {
     color: $cream;
     border: none;
     border-radius: 5px;
-    margin: 1rem 0;
+    margin: 1rem auto;
   }
 }
 

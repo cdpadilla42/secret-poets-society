@@ -16,6 +16,8 @@
       <h4><a href="/">✏ Secret Poets Society</a></h4>
       <ul class="menu">
         {{#if currentUser}}
+        <li><a href="/create-poem">New Poem</a></li>
+         <li><a href="/logout">Logout</a></li>
          <li>
            {{currentUser.first_name}}
          </li>

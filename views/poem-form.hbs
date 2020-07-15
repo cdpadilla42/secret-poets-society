@@ -7,19 +7,19 @@ Error! {{this.msg}}
 {{/each}}
 
 {{/if}}
-
-<form method="POST">
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" class="form-control" name="title">
-  </div>
-  <div class="form-group">
-    <label for="last_name">Text</label>
-    <textarea name="text" class="form-control" rows="6"></textarea>
-  </div>
-  <input type="hidden" name="user" value={{currentUser._id}}>
-  <div class="form-group">
-  <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
-</form>
-
+<div class="form_backdrop">
+  <form class="form" method="POST">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" name="title">
+    </div>
+    <div class="form-group">
+      <label for="last_name">Text</label>
+      <textarea name="text" class="form-control" rows="6"></textarea>
+    </div>
+    <input type="hidden" name="user" value={{currentUser._id}}>
+    <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

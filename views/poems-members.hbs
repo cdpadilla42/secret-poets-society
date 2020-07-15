@@ -3,42 +3,8 @@
     <div class="poem_card">
       <h2>{{this.title}}</h2>
       <p>{{this.text}}</p>
-      <p>- {{this.user.name}}</p>
+      <p>by {{this.user.name}}</p>
+      <p>{{this.formattedDate}}</p>
     </div>
   {{/each}}
 </div>
-
-
-
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}
-  {{#if currentUser}}
-  , {{currentUser.first_name}}
-  {{/if}}
-</p>
-
-
-
-<h2>Poems</h1>
-{{#if currentUser}}
-  {{#each poems}}
-    <div class="card">
-      <div class="card-header"><h6>{{this.title}}</h3></div>
-    <div class="card-body">
-      <p class="card-text">
-      {{this.text}}
-      </p>
-      <p>- {{this.user.name}}</p>
-    </div>
-    <div class="card-footer text-muted">{{this.formattedDate}}</div>
-    </div>
-    <br>
-  {{/each}}
-  
-{{/if}}
-
-{{#if currentUser}}
-<a href="/logout">
-Logout
-</a>
-{{/if}}
