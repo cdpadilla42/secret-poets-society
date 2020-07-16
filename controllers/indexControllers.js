@@ -59,10 +59,10 @@ exports.signUpPost = [
     next();
   },
   // validate
-  body('first_name').trim().isLength({ min: 1 }),
-  body('last_name').trim().isLength({ min: 1 }),
-  body('username').trim().isLength({ min: 1 }),
-  body('password').trim().isLength({ min: 1 }),
+  body('first_name', 'First name required.').trim().isLength({ min: 1 }),
+  body('last_name', 'Last name required.').trim().isLength({ min: 1 }),
+  body('username', 'Username required.').trim().isLength({ min: 1 }),
+  body('password', 'Password required.').trim().isLength({ min: 1 }),
   body('password_confirm', 'Passwords must match').custom(
     (value, { req }) => value === req.body.password
   ),
@@ -173,7 +173,7 @@ exports.createPoemPost = [
 
   // sanitize
   sanitizeBody('title').escape(),
-  // sanitizeBody('text').escape(),
+  sanitizeBody('text').escape(),
   sanitizeBody('user').escape(),
 
   // process

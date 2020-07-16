@@ -11,6 +11,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
+  {{!-- !!! --}}
+  {{!-- TODO: Add mobile nav --}}
+  {{!-- !!! --}}
   <nav>
     <div class="container">
       <h4><a href="/">✏ Secret Poets Society</a></h4>
@@ -28,8 +31,21 @@
       </ul>
       <i class="hamburger fas fa-bars"></i>
     </div>
-   
   </nav>
+  <div class="mobile_nav">
+    <ul class="mobile_nav__menu">
+        {{#if currentUser}}
+        <li><a href="/create-poem">New Poem</a></li>
+         <li><a href="/logout">Logout</a></li>
+         <li>
+           {{currentUser.first_name}}
+         </li>
+        {{else}}
+        <li><a href="/sign-up">Sign Up</a></li>
+        <li><a href="/login" class="login">Login</a></li>
+        {{/if}}
+      </ul>
+  </div>
 
  {{{body}}}
 
