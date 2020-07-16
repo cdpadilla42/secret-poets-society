@@ -36,11 +36,11 @@
     <span class="mobile_nav__close">&times;</span>
     <ul class="mobile_nav__menu">
         {{#if currentUser}}
+        <li>
+           <a href="/" class="mobile_nav__link--user">Hello {{currentUser.first_name}}!</a>
+         </li>
         <li><a href="/create-poem">New Poem</a></li>
          <li><a href="/logout">Logout</a></li>
-         <li>
-           {{currentUser.first_name}}
-         </li>
         {{else}}
         <li><a href="/sign-up">Sign Up</a></li>
         <li><a href="/login" class="login">Login</a></li>

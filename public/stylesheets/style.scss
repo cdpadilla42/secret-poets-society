@@ -120,6 +120,10 @@ nav {
     cursor: pointer;
   }
 
+  &__link--user {
+    color: $navy !important;
+  }
+
   &.open {
     transform: translateX(0);
   }

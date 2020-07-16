@@ -107,6 +107,9 @@ nav .container .hamburger {
   top: 0.5rem;
   cursor: pointer;
 }
+.mobile_nav__link--user {
+  color: #1a222e !important;
+}
 .mobile_nav.open {
   transform: translateX(0);
 }
