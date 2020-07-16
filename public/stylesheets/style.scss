@@ -51,6 +51,7 @@ nav {
     display: flex;
     color: $cream;
     align-items: center;
+    justify-content: space-between;
     padding: 0.5rem 1rem;
     width: 90%;
     margin: 0 auto;
@@ -62,6 +63,18 @@ nav {
 
     .hamburger {
       display: none;
+      justify-self: flex-end;
+      font-size: 1.3rem;
+    }
+
+    @media all and (max-width: 760px) {
+      .hamburger {
+        display: block;
+      }
+
+      .menu {
+        display: none;
+      }
     }
   }
 }

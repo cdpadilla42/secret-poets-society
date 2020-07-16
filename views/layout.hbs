@@ -49,6 +49,17 @@
 
  {{{body}}}
 
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.querySelector('.mobile_nav');
+    
+    function openMobileMenu() {
+      mobileNav.classList.toggle('open');
+    }
+
+    hamburger.addEventListener('click', openMobileMenu);
+  </script>
   </body>
   
 </html>

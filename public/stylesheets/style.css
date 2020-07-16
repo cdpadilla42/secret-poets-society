@@ -46,6 +46,7 @@ nav .container {
   display: flex;
   color: #e9eaeb;
   align-items: center;
+  justify-content: space-between;
   padding: 0.5rem 1rem;
   width: 90%;
   margin: 0 auto;
@@ -56,6 +57,16 @@ nav .container a {
 }
 nav .container .hamburger {
   display: none;
+  justify-self: flex-end;
+  font-size: 1.3rem;
+}
+@media all and (max-width: 760px) {
+  nav .container .hamburger {
+    display: block;
+  }
+  nav .container .menu {
+    display: none;
+  }
 }
 
 .mobile_nav {
