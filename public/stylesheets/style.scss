@@ -111,6 +111,13 @@ nav {
       }
     }
   }
+  &__close {
+    color: white;
+    font-size: 3rem;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+  }
 
   &.open {
     transform: translateX(0);

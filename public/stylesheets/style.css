@@ -99,6 +99,13 @@ nav .container .hamburger {
 .mobile_nav__menu a:hover {
   background-color: #e24d45;
 }
+.mobile_nav__close {
+  color: white;
+  font-size: 3rem;
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+}
 .mobile_nav.open {
   transform: translateX(0);
 }

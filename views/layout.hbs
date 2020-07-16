@@ -33,6 +33,7 @@
     </div>
   </nav>
   <div class="mobile_nav">
+    <span class="mobile_nav__close">&times;</span>
     <ul class="mobile_nav__menu">
         {{#if currentUser}}
         <li><a href="/create-poem">New Poem</a></li>
@@ -53,12 +54,15 @@
   <script>
     const hamburger = document.querySelector('.hamburger');
     const mobileNav = document.querySelector('.mobile_nav');
-    
+    const closeMobileEl = document.querySelector('.mobile_nav__close');
+
+
     function openMobileMenu() {
       mobileNav.classList.toggle('open');
     }
 
     hamburger.addEventListener('click', openMobileMenu);
+    closeMobileEl.addEventListener('click', openMobileMenu);
   </script>
   </body>
   
