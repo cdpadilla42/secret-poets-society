@@ -15,7 +15,6 @@ Tech used:
 
 - NodeJS
 - Express
-- Bootstrap
 - MongoDB & Mongoose
 - Passport
 
