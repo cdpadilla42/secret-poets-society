@@ -1,6 +1,6 @@
 # Secret Poets Society
 
-[View app in browser](https://cryptic-oasis-68949.herokuapp.com/)
+[View app in browser](http://secretpoetssociety-env.eba-m4efzmqx.us-east-1.elasticbeanstalk.com/)
 
 ## Message Board Utilizing User Authentication
 
