@@ -1,6 +1,6 @@
 # Secret Poets Society
 
-[View app in browser](http://secretpoetssociety-env.eba-m4efzmqx.us-east-1.elasticbeanstalk.com/)
+[View app in browser](https://secret-poets-society.onrender.com/)
 
 ## Message Board Utilizing User Authentication
 
